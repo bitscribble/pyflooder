@@ -7,7 +7,7 @@ Runs on Windows, Mac and Linux
 Required Python libs:
 * pygame
 
-## Start
+## Run
 ```
 python3 ./PyFlooder.py
 ```
