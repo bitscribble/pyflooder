@@ -1,5 +1,5 @@
 # pyflooder
-A simple port of the great puzzle game [https://github.com/Obalfour/Flooder](https://github.com/Obalfour/Flooder) (Game Boy Color) to Python and Pygame.
+A simple port of the great puzzle game [https://github.com/Obalfour/Flooder](https://github.com/Obalfour/Flooder) (Game Boy Color) to Python and PyGame.
 
 ## Requirements
 Runs on Windows, Mac and Linux
@@ -14,3 +14,4 @@ python3 ./PyFlooder.py
 
 ## Screenshot
 ![image](screenshot.png)
+
