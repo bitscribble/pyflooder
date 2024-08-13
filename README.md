@@ -12,6 +12,9 @@ Required Python libs:
 python3 ./PyFlooder.py
 ```
 
+Support for high resolution modes:
+```
+python3 ./PyFlooder.py --scaled
+```
 ## Screenshot
 ![image](screenshot.png)
-

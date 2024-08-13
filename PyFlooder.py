@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import random, pygame, sys
+import random, pygame, sys, argparse
 
 class Board():
     def __init__(self, size: int = 14):
@@ -74,17 +74,31 @@ def draw_board(screen: pygame.Surface, board: Board, size: int):
 def get_color_from_click(x: int, y: int, c: int, b: Board):
     return board.cells[y//c][x//c]
 
-def print_text(text: str):
+def print_text(text: str, font_size: int):
     screen.fill((0,0,0))
-    font = pygame.font.SysFont("Arial", 16)
+    font = pygame.font.SysFont("Arial", font_size)
     txtsurf = font.render(text, True, (255,255,255))
     screen.blit(txtsurf, (((BOARD_SIZE*CELL_SIZE) // 2)-(txtsurf.get_width()/2), ((BOARD_SIZE*CELL_SIZE) // 2)-(txtsurf.get_height()/2)))
     pygame.display.update()
 
 if __name__ == '__main__':
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--scaled', action='store_true')
+    args = parser.parse_args()
+
     BOARD_SIZE = 14
     MAX_TRIES = 24
-    CELL_SIZE = 20
+
+    if args.scaled:
+        CELL_SIZE = 40
+    else:
+        CELL_SIZE = 20
+
+    if args.scaled:
+        FONT_SIZE = 32
+    else:
+        FONT_SIZE = 16
 
     board = Board(BOARD_SIZE)
 
@@ -128,10 +142,10 @@ if __name__ == '__main__':
                 pygame.display.flip()
 
                 if board.check_win(new_color):
-                    print_text("You win, tries {}".format(tries))
+                    print_text("You win, tries {}".format(tries), FONT_SIZE)
                     finished = True
                 elif tries >= MAX_TRIES:
-                    print_text("You loose")
+                    print_text("You loose", FONT_SIZE)
                     finished = True
 
                 pygame.display.set_caption('Flooder - Tries: {}'.format(MAX_TRIES-tries))
