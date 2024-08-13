@@ -12,7 +12,7 @@ Required Python libs:
 python3 ./PyFlooder.py
 ```
 
-Support for high resolution modes:
+Support for high resolution screens:
 ```
 python3 ./PyFlooder.py --scaled
 ```
