@@ -49,11 +49,11 @@ class Board():
 
 
 PURPLE = (156,0,181)
-BLUE = (0, 140, 255)
-GREEN = (8, 181, 49)
-YELLOW = (255, 255, 0)
+BLUE = (0,140,255)
+GREEN = (8,181,49)
+YELLOW = (255,255,0)
 RED = (255,8,8)
-PINK = (255, 123, 173)
+PINK = (255,123,173)
 
 color_dict = {
   1: PURPLE,
@@ -130,8 +130,7 @@ if __name__ == '__main__':
                 if board.check_win(new_color):
                     print_text("You win, tries {}".format(tries))
                     finished = True
-
-                if tries >= MAX_TRIES:
+                elif tries >= MAX_TRIES:
                     print_text("You loose")
                     finished = True
 
