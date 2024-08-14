@@ -88,7 +88,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     BOARD_SIZE = 14
-    MAX_TRIES = 25
+    MAX_MOVES = 25
 
     if args.scaled:
         CELL_SIZE = 40
@@ -104,13 +104,13 @@ if __name__ == '__main__':
 
     pygame.init()
     screen = pygame.display.set_mode((BOARD_SIZE*CELL_SIZE, BOARD_SIZE*CELL_SIZE))
-    pygame.display.set_caption('Flooder - Tries: {}'.format(MAX_TRIES))
+    pygame.display.set_caption('Flooder - Moves: {}'.format(MAX_MOVES))
 
     draw_board(screen, board, CELL_SIZE)
     pygame.display.flip()
 
     old_color = board.cells[0][0]
-    tries = 0
+    moves = 0
     finished = False
 
     while True:
@@ -129,23 +129,23 @@ if __name__ == '__main__':
                     if old_color != new_color:
                         board.flood_fill(0,0,new_color,old_color)
                         old_color = new_color
-                        tries += 1
+                        moves += 1
                 else:
                     board.init_cells()
                     draw_board(screen, board, CELL_SIZE)
                     pygame.display.flip()
                     old_color = board.cells[0][0]
-                    tries = 0
+                    moves = 0
                     finished = False
 
                 draw_board(screen, board, CELL_SIZE)
                 pygame.display.flip()
 
                 if board.check_win(new_color):
-                    print_text("You win, tries {}".format(tries), FONT_SIZE)
+                    print_text("You win, moves {}".format(moves), FONT_SIZE)
                     finished = True
-                elif tries >= MAX_TRIES:
+                elif moves >= MAX_MOVES:
                     print_text("You loose", FONT_SIZE)
                     finished = True
 
-                pygame.display.set_caption('Flooder - Tries: {}'.format(MAX_TRIES-tries))
+                pygame.display.set_caption('Flooder - Moves: {}'.format(MAX_MOVES-moves))
