@@ -88,7 +88,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     BOARD_SIZE = 14
-    MAX_TRIES = 24
+    MAX_TRIES = 25
 
     if args.scaled:
         CELL_SIZE = 40
